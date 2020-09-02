@@ -102,7 +102,7 @@ int cort_new(cosched_t *S, cort_func_t func, void *ud) {
 	int cid = -1;
 	if (S->nco >= S->cap) {
 		cid = S->cap;
-		S->co = CO_REALLOC(S->co, S->cap * 2 * sizeof(cort_t *));
+		S->co = CO_REALLOC(S->co, S->cap * 2 * sizeof(cort_t *));  // 协程数组扩容
 		memset(S->co + S->cap , 0 , sizeof(cort_t *) * S->cap);
 		S->cap *= 2;
 	} else {
